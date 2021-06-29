@@ -17,7 +17,7 @@ if( !name ) {
     `)
     return 0;
 }
-console.log(checkFolderExists(name))
+
 if(checkFolderExists(name)) {
     console.log('Ya existe una carpeta con ese nombre.')
     yesno({
@@ -30,6 +30,7 @@ if(checkFolderExists(name)) {
             fs.rmSync(name, {recursive: true, force: true});
             console.log('Carpeta borrada. Procediendo a la instalación...')
             executeCommand('git', ['clone', repo, name]).then(async () => {
+                fs.rmSync(path.join(process.cwd(), name, '.git'), {recursive: true, force: true});
                 console.info('Installing npm dependencies...')
             
                 isWin ? 
@@ -48,13 +49,16 @@ if(checkFolderExists(name)) {
     })
 } else {
     executeCommand('git', ['clone', repo, name]).then(async () => {
+        fs.rmSync(path.join(process.cwd(), name, '.git'), {recursive: true, force: true});
         console.info('Installing npm dependencies...')
     
         isWin ? 
-            await executeCommandWin('npm install', { cwd: path.join(process.cwd(), '/', name) })
+            await executeCommandWin('npm install', { cwd: path.join(process.cwd(), name) })
             :
-            await executeCommand('npm', ['install'], { cwd: path.join(process.cwd(), '/', name) })
+            await executeCommand('npm', ['install'], { cwd: path.join(process.cwd(), name) })
     
+    
+        console.log(path.join(process.cwd(), name, '.git'))
         console.log('Finished!');
         console.log('To start: ');
         console.log('cd', name);
