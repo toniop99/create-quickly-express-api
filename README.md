@@ -14,7 +14,7 @@ npm install -g create-quickly-express-api
 
 ```
 // Using npx
-npx create-express-api app-name
+npx create-quickly-express-api app-name
 
 // Using global install
 create-quickly-express-api app-name
