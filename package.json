@@ -1,0 +1,20 @@
+{
+  "name": "create-quickly-express-api",
+  "version": "1.0.0",
+  "description": "A CLI to quicky create a basic express API",
+  "bin": {
+    "create-quickly-express-api": "./bin/index.js"
+  },
+  "main": "./bin/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toniop99/create-quickly-express-api.git"
+  },
+  "keywords": [],
+  "author": "A. H <granviamurcia2@gmail.com> (https://antoniohnz.me)",
+  "license": "ISC",
+  "dependencies": {
+    "yesno": "^0.3.1"
+  }
+}
