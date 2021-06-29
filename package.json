@@ -3,9 +3,9 @@
   "version": "1.1.0",
   "description": "A CLI to quicky create a basic express API",
   "bin": {
-    "create-quickly-express-api": "./bin/index.js"
+    "create-quickly-express-api": "./bin/index.mjs"
   },
-  "main": "./bin/index.js",
+  "main": "./bin/index.mjs",
   "scripts": {
     "test": "echo \"No test\""
   },
@@ -17,6 +17,7 @@
   "author": "A. H <granviamurcia2@gmail.com> (https://antoniohnz.me)",
   "license": "ISC",
   "dependencies": {
-    "yesno": "^0.3.1"
+    "yesno": "^0.3.1",
+    "zx": "1.14.2"
   }
 }
