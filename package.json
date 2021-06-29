@@ -1,6 +1,6 @@
 {
   "name": "create-quickly-express-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI to quicky create a basic express API",
   "bin": {
     "create-quickly-express-api": "./bin/index.js"

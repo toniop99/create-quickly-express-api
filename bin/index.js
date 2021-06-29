@@ -17,7 +17,7 @@ if( !name ) {
     `)
     return 0;
 }
-
+console.log(checkFolderExists(name))
 if(checkFolderExists(name)) {
     console.log('Ya existe una carpeta con ese nombre.')
     yesno({
@@ -45,6 +45,22 @@ if(checkFolderExists(name)) {
                 return 0
             })
         }
+    })
+} else {
+    executeCommand('git', ['clone', repo, name]).then(async () => {
+        console.info('Installing npm dependencies...')
+    
+        isWin ? 
+            await executeCommandWin('npm install', { cwd: path.join(process.cwd(), '/', name) })
+            :
+            await executeCommand('npm', ['install'], { cwd: path.join(process.cwd(), '/', name) })
+    
+        console.log('Finished!');
+        console.log('To start: ');
+        console.log('cd', name);
+        console.log('npm run start:dev');
+    
+        return 0
     })
 }
 
